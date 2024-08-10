@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "jestproctice": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -15,12 +16,20 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coverage": "npm test -- --coverage --watchAll=false --collectCoverageFrom=\"src/components/**/*.{js,jsx}\" --collectCoverageFrom=\"!src/components/**/*.{types,constants,stories,reportWebVitals,test,spec,index}\"",
+    "lint": "eslint --ignore-path .gitignore .",
+    "format": "prettier --ignore-path .igitignore --write \"**/*.{js,jsx,css,scss}\"",
+    "prepare": "husky && husky install"
   },
   "eslintConfig": {
+    "plugins": [
+      "jest-dom"
+    ],
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:jest-dom/recommended"
     ]
   },
   "browserslist": {
@@ -34,5 +43,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-jest-dom": "^5.4.0",
+    "exact": "^1.0.1",
+    "prettier": "^3.3.3",
+    "husky": "^8.0.0"
   }
 }
