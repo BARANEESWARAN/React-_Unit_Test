@@ -13,6 +13,6 @@ describe("form component testing", () => {
       name: "Login",
     });
     expect(buttonElement).toBeInTheDocument();
-    expect(buttonElement).not.toBeEnabled;
+    expect(buttonElement).toBeDisabled();
   });
 });
