@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Login, { validateEmail } from "./Login";
 import userEvent from "@testing-library/user-event";
-
+import React from "react";
 describe("kogin component test", () => {
   it("render buttons on screeen", () => {
     render(<Login />);
